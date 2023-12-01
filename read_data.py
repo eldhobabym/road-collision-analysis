@@ -13,23 +13,9 @@ class ReadData:
     def __init__(self):
         self.spark = get_spark_session()
 
-    def read_collision_record_data(self, path):
+    def read_raw_data(self, path):
         return (
             self.spark.read.option("delimiter", ",").option("header", True).csv(path)
         ).repartitionByRange("CASE_ID")
 
-    def read_party_record_data(self, path):
-        return (
-            self.spark.read.option("delimiter", ",")
-            .option("header", True)
-            .csv(path)
-            .repartitionByRange("CASE_ID")
-        )
-
-    def read_victim_record_data(self, path):
-        return (
-            self.spark.read.option("delimiter", ",")
-            .option("header", True)
-            .csv(path)
-            .repartitionByRange("CASE_ID")
-        )
+   

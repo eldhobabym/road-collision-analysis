@@ -16,7 +16,7 @@ class IngestData(ReadData):
         collision_source_path = SOURCE_PATH + "/collision"
         file_names = get_file_names(collision_source_path)
         for file_name in file_names:
-            collision_df = self.read_collision_record_data(
+            collision_df = self.read_raw_data(
                 "{}/{}".format(collision_source_path, file_name)
             )
 
@@ -28,7 +28,7 @@ class IngestData(ReadData):
         victim_source_path = SOURCE_PATH + "/victim"
         file_names = get_file_names(victim_source_path)
         for file_name in file_names:
-            collision_df = self.read_collision_record_data(
+            collision_df = self.read_raw_data(
                 "{}/{}".format(victim_source_path, file_name)
             )
             collision_df.write.format("delta").mode("append").save(
@@ -39,7 +39,7 @@ class IngestData(ReadData):
         party_source_path = SOURCE_PATH + "/party"
         file_names = get_file_names(party_source_path)
         for file_name in file_names:
-            collision_df = self.read_collision_record_data(
+            collision_df = self.read_raw_data(
                 "{}/{}".format(party_source_path, file_name)
             )
             collision_df.write.format("delta").mode("append").save(
