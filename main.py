@@ -3,9 +3,13 @@ from dotenv import load_dotenv
 
 from ingest_bronze import IngestData
 
+# from silver_layer import ProcessingSilverLayer
+from silver_layer import ProcessingSilverLayer
+
 
 def main():
     IngestData()
+    ProcessingSilverLayer()
 
 
 if __name__ == "__main__":
