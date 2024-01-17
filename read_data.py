@@ -14,8 +14,10 @@ class ReadData(Base):
         ).repartitionByRange("CASE_ID")
 
 
-class ReadDelata(Base):
+class ReadDelta(Base):
     def read_delta_data(self, table_name, path):
         self.spark.sql(
             f"CREATE TABLE IF NOT EXISTS {table_name} USING delta LOCATION '{path}'"
         )
+
+
