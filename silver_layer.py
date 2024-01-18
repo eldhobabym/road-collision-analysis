@@ -11,7 +11,6 @@ from base import Base
 from read_data import ReadDelta
 from _config import DELTA_PATH
 from utils import collision_fields, victim_fields, party_fields, list_to_string
-from exceptions import DataFrameNoteFound
 
 
 COLLISION_TABLE = "collision"
